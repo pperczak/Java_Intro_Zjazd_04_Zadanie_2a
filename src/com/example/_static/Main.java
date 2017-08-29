@@ -11,8 +11,6 @@ public class Main {
             System.out.println("Podano zly rozmiar tablicy");
             return;
         }
-        //System.out.print("Podaj typ figury: ");
-        //int typFigury = scanner.nextInt();
 
         System.out.print("Podaj wspolrzedne X: ");
         int kolumna = scanner.nextInt();
@@ -28,6 +26,14 @@ public class Main {
             return;
         }
 
+        System.out.print("Podaj typ figury: 0-wieża, 1-goniec, 2-hetman, 3-król: ");
+        int typFigury = scanner.nextInt();
+
+        if (typFigury <0 || typFigury >5 ) {
+            System.out.println("Niepoprawny wybór");
+            return;
+        }
+
         int [][] ruchy_krol = {
                 {-1, -1},
                 {-1, 0},
@@ -39,17 +45,26 @@ public class Main {
                 {1,  1}
         };
 
-        System.out.println("Dostępne pola dla króla przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
-        krol(ruchy_krol,wiersz,kolumna,rozmiar);
-
-        System.out.println("Dostępne pola dla wieży przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
-        wieza(wiersz, kolumna, rozmiar);
-
-        System.out.println("Dostępne pola dla gońca przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
-        goniec(wiersz, kolumna, rozmiar);
-
-        System.out.println("Dostępne pola dla hetmana przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
-        hetman(wiersz, kolumna, rozmiar);
+        switch (typFigury) {
+            case 0:
+                System.out.println("Dostępne pola dla wieży przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
+                wieza(wiersz, kolumna, rozmiar);
+                break;
+            case 1:
+                System.out.println("Dostępne pola dla gońca przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
+                goniec(wiersz, kolumna, rozmiar);
+                break;
+            case 2:
+                System.out.println("Dostępne pola dla hetmana przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
+                hetman(wiersz, kolumna, rozmiar);
+                break;
+            case 3:
+                System.out.println("Dostępne pola dla króla przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
+                krol(ruchy_krol,wiersz,kolumna,rozmiar);
+                break;
+            default:
+                System.out.println("To sie nie zdarza... albo zdarza.");
+        }
     }
 
     public static void krol(int[][] ruchy, int wiersz, int kolumna, int rozmiar) {
