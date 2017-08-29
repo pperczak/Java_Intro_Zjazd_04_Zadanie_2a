@@ -93,7 +93,7 @@ public class Main {
     public static void goniec (int wiersz, int kolumna, int rozmiar) {
         int i = 1;
 
-        while ((wiersz - i)> 0 && (kolumna - i) > 0 ) {
+        while ((wiersz - i)>= 0 && (kolumna - i) >= 0 ) {
             int w = wiersz - i;
             int k = kolumna - i;
             System.out.println("Dostepne pola, w: "+w+ " k:"+k);
@@ -109,7 +109,7 @@ public class Main {
         }
         i=1;
 
-        while ((wiersz - i)> 0 && (kolumna + i) < rozmiar ) {
+        while ((wiersz - i)>= 0 && (kolumna + i) < rozmiar ) {
             int w = wiersz - i;
             int k = kolumna + i;
             System.out.println("Dostepne pola, w: "+w+ " k:"+k);
@@ -117,7 +117,7 @@ public class Main {
         }
         i=1;
 
-        while ((wiersz + i) < rozmiar && (kolumna - i) > 0 ) {
+        while ((wiersz + i) < rozmiar && (kolumna - i) >= 0 ) {
             int w = wiersz + i;
             int k = kolumna - i;
             System.out.println("Dostepne pola, w: "+w+ " k:"+k);
