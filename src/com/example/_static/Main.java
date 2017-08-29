@@ -40,7 +40,7 @@ public class Main {
         };
 
         System.out.println("Dostępne pola dla króla przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
-        dostepne_pola(ruchy_krol,wiersz,kolumna,rozmiar);
+        krol(ruchy_krol,wiersz,kolumna,rozmiar);
 
         System.out.println("Dostępne pola dla wieży przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
         wieza(wiersz, kolumna, rozmiar);
@@ -52,7 +52,7 @@ public class Main {
         hetman(wiersz, kolumna, rozmiar);
     }
 
-    public static void dostepne_pola(int[][] ruchy, int wiersz, int kolumna, int rozmiar) {
+    public static void krol(int[][] ruchy, int wiersz, int kolumna, int rozmiar) {
         for (int ruch = 0; ruch < ruchy.length; ++ruch) {
             int w = wiersz + ruchy[ruch][0];
             int k = kolumna + ruchy[ruch][1];
@@ -77,7 +77,7 @@ public class Main {
 
     public static void goniec (int wiersz, int kolumna, int rozmiar) {
         int i = 1;
-
+        //skos lewo dół
         while ((wiersz - i)>= 0 && (kolumna - i) >= 0 ) {
             int w = wiersz - i;
             int k = kolumna - i;
@@ -85,7 +85,7 @@ public class Main {
             i++;
         }
         i=1;
-
+        //skos prawo góra
         while ((wiersz + i)< rozmiar && (kolumna + i) < rozmiar ) {
             int w = wiersz + i;
             int k = kolumna + i;
@@ -93,7 +93,7 @@ public class Main {
             i++;
         }
         i=1;
-
+        //skos prawo dół
         while ((wiersz - i)>= 0 && (kolumna + i) < rozmiar ) {
             int w = wiersz - i;
             int k = kolumna + i;
@@ -101,7 +101,7 @@ public class Main {
             i++;
         }
         i=1;
-
+        //skos lewo góra
         while ((wiersz + i) < rozmiar && (kolumna - i) >= 0 ) {
             int w = wiersz + i;
             int k = kolumna - i;
