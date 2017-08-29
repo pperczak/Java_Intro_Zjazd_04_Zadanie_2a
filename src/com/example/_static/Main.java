@@ -28,20 +28,6 @@ public class Main {
             return;
         }
 
-        //int wiersz = 2, kolumna = 5;
-        int wynik = 0;
-
-        int [][] ruchy_skoczek = {
-                {-2,  1},
-                {-1,  2},
-                { 1,  2},
-                { 2,  1},
-                { 2, -1},
-                { 1, -2},
-                {-1, -2},
-                {-2, -1}
-        };
-
         int [][] ruchy_krol = {
                 {-1, -1},
                 {-1, 0},
@@ -52,8 +38,6 @@ public class Main {
                 {1,  0},
                 {1,  1}
         };
-        System.out.println("Dostępne pola dla skoczka przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
-        dostepne_pola(ruchy_skoczek,wiersz,kolumna,rozmiar);
 
         System.out.println("Dostępne pola dla króla przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
         dostepne_pola(ruchy_krol,wiersz,kolumna,rozmiar);
