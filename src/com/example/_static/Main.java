@@ -52,19 +52,20 @@ public class Main {
                 {1,  0},
                 {1,  1}
         };
-        System.out.println("Dostępne pola dla skoczka przy umieszczeniu na "+ kolumna + " "+wiersz);
+        System.out.println("Dostępne pola dla skoczka przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
         dostepne_pola(ruchy_skoczek,wiersz,kolumna,rozmiar);
 
-        System.out.println("Dostępne pola dla króla przy umieszczeniu na "+ kolumna + " "+wiersz);
+        System.out.println("Dostępne pola dla króla przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
         dostepne_pola(ruchy_krol,wiersz,kolumna,rozmiar);
 
-        System.out.println("Dostępne pola dla wieży przy umieszczeniu na "+ kolumna + " "+wiersz);
+        System.out.println("Dostępne pola dla wieży przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
         wieza(wiersz, kolumna, rozmiar);
 
-        System.out.println("Dostępne pola dla gońca przy umieszczeniu na "+ kolumna + " "+wiersz);
+        System.out.println("Dostępne pola dla gońca przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
         goniec(wiersz, kolumna, rozmiar);
 
-
+        System.out.println("Dostępne pola dla hetmana przy umieszczeniu na kolumnie "+ kolumna + " i wierszu "+wiersz);
+        hetman(wiersz, kolumna, rozmiar);
     }
 
     public static void dostepne_pola(int[][] ruchy, int wiersz, int kolumna, int rozmiar) {
@@ -96,7 +97,7 @@ public class Main {
         while ((wiersz - i)>= 0 && (kolumna - i) >= 0 ) {
             int w = wiersz - i;
             int k = kolumna - i;
-            System.out.println("Dostepne pola, w: "+w+ " k:"+k);
+            System.out.println("w: "+w+ " k:"+k);
             i++;
         }
         i=1;
@@ -104,7 +105,7 @@ public class Main {
         while ((wiersz + i)< rozmiar && (kolumna + i) < rozmiar ) {
             int w = wiersz + i;
             int k = kolumna + i;
-            System.out.println("Dostepne pola, w: "+w+ " k:"+k);
+            System.out.println("w: "+w+ " k:"+k);
             i++;
         }
         i=1;
@@ -112,7 +113,7 @@ public class Main {
         while ((wiersz - i)>= 0 && (kolumna + i) < rozmiar ) {
             int w = wiersz - i;
             int k = kolumna + i;
-            System.out.println("Dostepne pola, w: "+w+ " k:"+k);
+            System.out.println("w: "+w+ " k:"+k);
             i++;
         }
         i=1;
@@ -120,20 +121,17 @@ public class Main {
         while ((wiersz + i) < rozmiar && (kolumna - i) >= 0 ) {
             int w = wiersz + i;
             int k = kolumna - i;
-            System.out.println("Dostepne pola, w: "+w+ " k:"+k);
+            System.out.println("w: "+w+ " k:"+k);
             i++;
         }
-
-
     }
 
     public static void hetman(int wiersz, int kolumna, int rozmiar) {
         //najpierw te same pola co dla wiezy
         wieza(wiersz,kolumna,rozmiar);
-        //i jeszcze skosy
-
+        //i jeszcze skosy czyli goniec
+        goniec(wiersz,kolumna,rozmiar);
     }
-
 
     public static boolean sprawdz(int x, int rozmiar) {
         return x >= 0 && x < rozmiar;
